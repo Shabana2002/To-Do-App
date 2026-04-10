@@ -1,25 +1,112 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>ToDo App</title>
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<title>Modern Dashboard</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<div class="container">
-    <h1>ToDo App</h1>
+<div class="app">
 
-    <div class="input-box">
-        <input type="text" id="taskInput" placeholder="Enter a task...">
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+
+        <ul>
+            <li>🏠 All day</li>
+            <li>📅 Today</li>
+            <li>📆 Tomorrow</li>
+            <li>🗓 Next 7 days</li>
+        </ul>
+    </aside>
+
+    <!-- MAIN -->
+    <main class="main">
+
+        <div class="header">
+            <h1>Today Activities</h1>
+            <button onclick="openModal()">+ New Task</button>
+        </div>
+
+        <!-- HABITS -->
+        <h3>Your Habits</h3>
+        <div class="habits">
+
+            <div class="habit">
+    <img src="https://cdn-icons-png.flaticon.com/512/2331/2331947.png">
+    <p>Sleeping</p>
+    </div>
+
+            <div class="habit">
+                <img src="https://cdn-icons-png.flaticon.com/512/3075/3075977.png">
+                <p>Eating</p>
+            </div>
+
+            <div class="habit">
+                <img src="https://cdn-icons-png.flaticon.com/512/3771/3771557.png">
+                <p>Self Care</p>
+            </div>
+
+            <div class="habit">
+                <img src="https://cdn-icons-png.flaticon.com/512/727/727245.png">
+                <p>Movie</p>
+            </div>
+
+            <div class="habit">
+                <img src="https://cdn-icons-png.flaticon.com/512/29/29302.png">
+                <p>Reading</p>
+            </div>
+
+        </div>
+
+        <!-- REMINDERS -->
+        <h3>Reminders</h3>
+        <div class="reminders">
+            <div class="reminder work">Breakfast</div>
+            <div class="reminder learning">Lunch</div>
+            <div class="reminder design">Dinner</div>
+        </div>
+
+
+            <div id="reminderList" class="reminders"></div>
+
+            <button onclick="addReminder()" style="margin-top:10px;">+ Add Reminder</button>
+        <!-- TASK BOARD -->
+        <h3>To Do List</h3>
+
+        <div class="board">
+
+            <div class="column" id="todo">
+                <h4>To Do</h4>
+            </div>
+
+            <div class="column" id="progress">
+                <h4>In Progress</h4>
+            </div>
+
+            <div class="column" id="done">
+                <h4>Completed</h4>
+            </div>
+
+        </div>
+
+    </main>
+
+    <!-- RIGHT PANEL -->
+    <aside class="right">
+        <h3>Task Details</h3>
+        <div id="details">Select a task</div>
+    </aside>
+
+</div>
+
+<!-- MODAL -->
+<div id="modal" class="modal">
+    <div class="modal-content">
+        <input id="taskText" placeholder="Task name">
+        <input id="taskTag" placeholder="Tag (work/learning)">
         <button onclick="addTask()">Add</button>
     </div>
-
-    <div class="stats">
-        <p>Total Tasks: <span id="count">0</span></p>
-        <p>Completed: <span id="completedCount">0</span></p>
-    </div>
-
-    <ul id="taskList"></ul>
 </div>
 
 <script src="script.js"></script>
